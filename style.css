@@ -1,41 +1,62 @@
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+}
+
+header {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bgsection {
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* Make background take up full height */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    background-image: url(images/man.png);
+    background-color: #8799b4e0;
+    background-image: url('images/m5.png');
     background-repeat: no-repeat;
-    background-position: -600px;
+    background-position: center;
+    background-size: cover;
     overflow: hidden;
-    animation: move-background 5s infinite linear;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-
 .helicopter {
-    /* transform: translate(400px, 300px); */
-    animation: bounce 5s infinite;
-
+    position: absolute;
+    top: 40%;  /* Center the helicopter*/
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: movefly 3s infinite linear;
 }
 
 .cockpit {
-    /* border: 2px solid rgb(128, 31, 31); */
     position: absolute;
     overflow: hidden;
     z-index: 1;
     width: 192px;
     height: 192px;
-    /* border-radius: top right button left*/
     border-radius: 100px 40px 50px 50px;
     background-color: rgb(95, 129, 168);
-
 }
 
 .cockpit .door {
-    border: 2px solid rgb(11, 10, 0);
     position: absolute;
     top: 105px;
     left: 105px;
@@ -45,17 +66,15 @@ body {
     background-color: rgb(169, 162, 162);
 }
 
-.door span{
-border: 3px solid black;
-position: absolute;
-top: 12px;
-left: 6.9px;
-border-radius: 4px;
-
+.door span {
+    position: absolute;
+    top: 12px;
+    left: 6.9px;
+    border: 3px solid black;
+    border-radius: 4px;
 }
 
 .cockpit::before {
-    /* border: 2px solid rgb(147, 178, 22); */
     content: "";
     position: absolute;
     z-index: 1;
@@ -65,11 +84,9 @@ border-radius: 4px;
     height: 162px;
     border-radius: 40px;
     background-color: #302e37;
-
 }
 
 .cockpit::after {
-    /* border: 2px solid rgb(29, 98, 147); */
     content: "";
     position: absolute;
     z-index: 1;
@@ -78,7 +95,7 @@ border-radius: 4px;
     width: 162px;
     height: 162px;
     border-radius: 40px;
-    background-color: rgba(0, 0, 0, 0.420);
+    background-color: rgba(0, 0, 0, 0.42);
 }
 
 .tail {
@@ -91,7 +108,6 @@ border-radius: 4px;
     border-bottom: 60px solid transparent;
     border-left: 350px solid rgb(95, 129, 168);
     border-bottom-right-radius: 10px;
-
 }
 
 .small-fan {
@@ -129,16 +145,11 @@ border-radius: 4px;
 
 .rotator-small div:nth-child(1) {
     transform: rotate(0deg);
-
 }
 
 .rotator-small div:nth-child(2) {
     transform: rotate(90deg);
-
-
 }
-
-
 
 .rotor-mast {
     position: absolute;
@@ -146,14 +157,10 @@ border-radius: 4px;
     top: -10px;
     width: 40px;
     height: 20px;
-    /* border: 2px solid red; */
     background-color: rgba(21, 17, 19, 0.933);
 }
 
-
-/* fan code */
 .rotor-blade {
-    /* border: 2px solid rgba(9, 9, 33, 0.5); */
     position: absolute;
     top: -355px;
     left: -195px;
@@ -162,7 +169,6 @@ border-radius: 4px;
     border-radius: 50%;
     z-index: 2;
     background-color: #6c6a6da6;
-    /* background-color: #6d4481a6; */
     opacity: 0.8;
     overflow: hidden;
     transform: scaleY(0.076);
@@ -175,7 +181,6 @@ border-radius: 4px;
     border-radius: 335px;
     animation: fly 0.06s linear infinite;
 }
-
 
 .rotator div {
     position: absolute;
@@ -191,17 +196,13 @@ border-radius: 4px;
 
 .rotator div:nth-child(1) {
     transform: rotate(0deg);
-
 }
 
 .rotator div:nth-child(2) {
     transform: rotate(90deg);
-
-
 }
 
 .landing-skid {
-    /* border: 2px solid green; */
     position: absolute;
     top: 200px;
     left: 23px;
@@ -213,58 +214,42 @@ border-radius: 4px;
     border-bottom-right-radius: 10px;
 }
 
-.landing-skid .skid1 {
-    border: 2px solid transparent;
+.landing-skid .skid1,
+.landing-skid .skid2 {
     position: absolute;
     height: 10px;
     width: 5px;
     top: -10px;
-    left: 20px;
     background-color: #3e3c46;
+}
+
+.landing-skid .skid1 {
+    left: 20px;
 }
 
 .landing-skid .skid2 {
-    border: 2px solid transparent;
-    position: absolute;
-    height: 10px;
-    width: 5px;
-    top: -10px;
     right: 20px;
-    background-color: #3e3c46;
-}
-
-
-
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translate(0px, -50px) rotate(-15deg);
-
-    }
-
-    50% {
-        transform: translate(0px, 50px) rotate(-10deg);
-    }
 }
 
 @keyframes fly {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
-
     }
 }
 
-@keyframes move-background {
+@keyframes movefly {
     0% {
-        transform: translateX(0%);
+        transform: translateX(10vw); /* Start at the right edge */
+    }
+
+    50% {
+        transform: translate(10vw, -5vw) rotate(-10deg);
     }
 
     100% {
-        transform: translateX(-20%);
+        transform: translateX(-100vw); /* Move to the left edge */
     }
 }
