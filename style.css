@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=Nosifer&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +8,13 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #2f2f2f;
-    color: white;
+    font-family: "Nosifer", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #8799b4e0;
+    color: rgb(12, 12, 12);
     text-align: center;
+  
 }
 
 header {
@@ -16,8 +22,31 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2.3rem;
+    text-shadow: 2px 2px 4px rgba(52, 18, 18, 0.529);
+    z-index: 2;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+.txt-light{
+    color: transparent;
+    background-image: conic-gradient(from var(--rotate) at 29% 10%, #fff 40%, #da5e85, #e63e73a9 60%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: rotateLight 3s ease-in-out infinite alternate ;
+}
+
+
+@keyframes rotateLight{
+    from { --rotate:0.25turn}
+
+    to { --rotate:-0.25turn}
 }
 
 .bgsection {
@@ -26,7 +55,6 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #8799b4e0;
     background-image: url('images/m5.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -246,7 +274,7 @@ h1 {
     }
 
     50% {
-        transform: translate(10vw, -5vw) rotate(-10deg);
+        transform: translate(5vw, -5vw) rotate(-10deg);
     }
 
     100% {
